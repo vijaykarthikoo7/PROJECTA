@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <script>
+        var database = [
+            {
+                username: 'vijay',
+                password: '123'
+            },
+            {
+                username: 'karthik',
+                password: '123'
+            },
+            {
+                username: 'arjun',
+                password: '123'
+            }
+        ];
+
+        let nameprompt = prompt("Please enter the username");
+        let passwordprompt = prompt("Please enter the password");
+
+        function isUserValid(username, password) {
+            for(let i = 0; i < database.length; i++) {
+                if(database[i].username === username && database[i].password === password) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function login(username, password) {
+            if (isUserValid(username, password)) {
+                window.location = "http://127.0.0.1:5500/index.html";
+            } else {
+                alert("Credentials invalid!");
+            }
+        }
+
+        login(nameprompt, passwordprompt);
+    </script>
+</body>
+</html>
